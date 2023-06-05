@@ -1,113 +1,223 @@
-import Image from 'next/image'
+"use client";
+
+import { ReactNode } from "react";
+import { activeProjects, openProjects, closedProjects, proprietaryProjects} from "./projectList"
+import { FontAwesomeIcon } from  "@fortawesome/react-fontawesome"
+import { faGithub  } from "@fortawesome/free-brands-svg-icons"
+
+function scrollTo(mode: number) {
+  switch (mode) {
+    case 1: {
+      const e = document.getElementById("About");
+      if (e) {
+        e.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        })
+      }
+      break;
+    }
+
+    case 2: {
+      const e = document.getElementById("Projects");
+      if (e) {
+        e.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        })
+      }
+      break;
+    }
+
+    case 3: {
+      const e = document.getElementById("Portofolio");
+      if (e) {
+        e.scrollIntoView({
+          behavior: "smooth",
+          block: "start"
+        })
+      }
+      break;
+    }
+
+    default: {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      })
+      break;
+    }
+  }
+}
+
+const dividerDiv = <div className="w-full h-1 bg-gray-900"></div>;
+
+function ProjectCard(project: any): ReactNode {
+  return (
+    <div className="font-roboto flex flex-col items-center content-center max-w-[300px] w-[33vw]">
+      <div className="flex flex-col bg-cream text-black w-full rounded-xl py-1">
+        <div className="border-b-2 border-black border-dashed pb-1">
+          <h1 className="text-center text-xl font-extrabold">
+            {project.name}
+          </h1>
+          {project.position &&
+            <h1 className="text-center text-base">
+              {project.position}
+            </h1>
+          }
+        </div>
+        <div className="px-5 py-1">
+          { project.description &&
+            <p>{project.description}</p>
+          }
+          { project.techstacks && 
+            <p>Tech Stack: {project.techstacks}</p>
+          }
+          <p>Features:</p>
+          { project.features &&
+            <ul className="list-disc list-inside">
+              {project.features.map((e: string, index:number) => {
+                return <li key={index}>{e}</li>
+              })}
+            </ul> 
+          }
+          { project.github &&
+            <a className=" cursor-pointer" href={project.github} target="_blank">
+              <FontAwesomeIcon icon={faGithub} /> Github Code
+            </a>
+          }
+        </div>
+        { project.link &&
+          <div className="flex border-t-2 border-black pt-1 px-5 w-full justify-center mt-1">
+            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+             onClick={() => {window.open(project.link)}}
+            >
+              Website
+            </button>
+          </div>
+        }
+      </div>
+    </div>
+  )
+}
+
+function ProjectCards({projects} : {projects: any[]}) {
+  return (
+    <div className="w-full overflow-x-scroll pb-3">
+      <div className="flex justify-center min-w-full w-fit space-x-4">
+        {projects.map(e => {return ProjectCard(e)})}
+      </div>
+    </div>
+  )
+}
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <main className="flex flex-col items-center px-13">
+      <div className='flex h-screen flex-col items-center content-center w-full'>
+        <nav className="fixed w-screen border-gray-200 bg-gray-900 font-inter">
+          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+            <div className="flex items-center cursor-pointer" onClick={() => {scrollTo(-1)}}>
+              <img src="/3mwlogo.png" className="h-8 mr-3" alt="Logo" />
+              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">3MWorkshop</span>
+            </div>
+            <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                <li>
+                  <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(1)}}>
+                    About
+                  </button>
+                </li>
+                <li>
+                  <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(2)}}>
+                    Active projects
+                  </button>
+                </li>
+                <li>
+                  <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(3)}}>
+                    Portofolio
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+        <div className="flex flex-col items-center justify-center h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black to-90%">
+          <div className="flex flex-col items-center">
+            <img src="/logo2.png" className="h-3/5" alt="Logo"/>
+            <h1 className="font-kalam text-center text-2xl mt-10">
+              Welcome to MonMonMnemonics Workshop<br/>
+              This is just a centralized server for any of my hobby projects<br/>
+              as well as any other things that pique my interest.
+            </h1>
+          </div> 
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      {dividerDiv}
+
+      <div id="About" className="font-roboto flex flex-col items-center content-center max-w-screen-xl"
+       style={{padding:"17px"}}
+      >
+        <h1 className="text-center text-4xl font-extrabold">
+          About
+        </h1>
+        <div className="mt-3">
+          <div className="float-left flex flex-col items-center justify-center h-[256px] w-[256px] bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-white to-black to-70%">
+            <img src="/profile.png" className="h-[200px]" alt="ProfilePict" />
+          </div>
+          <p className="text-justify">
+            Hi, I'm MonMonMnemonics, or people use to call me just MonMon.<br/>
+            <br/>
+            I'm a Particle Physicist by trade and doing PhD in theoretical hadron physics right now.<br/>
+            While on the side, I'm also doing programming both as a part-time job and as a simple hobby.<br/>
+            <br/>
+            I've been doing programming for a long-long time, my first paid programming job was a finance software using VB6.
+            Then from there, I've done all kinds of programming languages such as PoS with Delphi and Hotel management software using VB.net which was later rewritten in C#.<br/>
+            <br/>
+            As a long-time programmer, it's interesting to see how the interest shifted from desktop applications to web applications around 2015. My first dip into web application development was with Django,
+            Which didn't work out well with the client, then from there I tried my hands in all kinds of frameworks such as flask, .net, Symfony, and JS for both backend and frontend. But due to its portability, I ended up using JS the most.<br/>
+            <br/>
+            With that being said, just like with Physics, I love to learn new things and experiment with programming.
+            As such, I often start a new project or take a programming job to learn new technologies or techniques, and after so many hobby projects, it started to get too burdensome to get a different domain each time.
+            Thus this website serves as a centralized server for my ongoing passion projects as well as a repository to keep track of what I tried and in which project.
+            <br/>
+          </p>
+        </div>
       </div>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800 hover:dark:bg-opacity-30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the Next.js 13 playground.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      {dividerDiv}
+      <div id="Projects" className="font-roboto flex flex-col items-center content-center w-screen"
+       style={{padding:"21px"}}
+      >
+        <h1 className="text-center text-4xl font-extrabold mb-4">
+          Active Projects
+        </h1>
+        <ProjectCards projects={activeProjects}/>
       </div>
+
+      {dividerDiv}
+      <div id="Portofolio" className="font-roboto flex flex-col items-center content-center w-screen"
+       style={{padding:"21px"}}
+      >
+        <h1 className="text-center text-4xl font-extrabold mb-4">
+          Past Projects
+        </h1>
+        <h1 className="text-center text-2xl mb-2">
+          --- Open Source ---
+        </h1>
+        <ProjectCards projects={openProjects}/>
+        <h1 className="text-center text-2xl mb-2">
+          --- Closed Source ---
+        </h1>
+        <ProjectCards projects={closedProjects}/>
+        <h1 className="text-center text-2xl mb-2">
+          --- Proprietary Source Code ---
+        </h1>
+        <ProjectCards projects={proprietaryProjects}/>
+      </div>
+
     </main>
   )
 }

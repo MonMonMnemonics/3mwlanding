@@ -12,6 +12,14 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      fontFamily: {
+        kalam: ["var(--font-kalam)"],
+        inter: ["var(--font-inter)"],
+        roboto: ["var(--font-roboto)"]
+      },
+      colors: {
+        cream: "#FFFDD0"
+      }
     },
   },
   plugins: [],
