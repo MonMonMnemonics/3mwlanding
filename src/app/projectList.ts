@@ -131,7 +131,7 @@ export const otherProjects = [
     {
         name: "Hotel Management (Defunct)",
         position: "Developer",
-        description: "Full package hotel management system, this was way way a long time ago around ~2013.",
+        description: "Full package hotel management system for PSBB MAN 3 Malang, this was way way a long time ago around ~2013.",
         techstacks: "VB.net - MS Access",
         features: [
             "Daily and Monthly financial report.",

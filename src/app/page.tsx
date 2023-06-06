@@ -249,9 +249,6 @@ export default function Home() {
         <h1 className="text-center text-2xl">
           --- Other projects ---
         </h1>
-        <h1 className="text-center text-m mb-2">
-          I either do not or may not have or show the source code.
-        </h1>
         <ProjectCards projects={otherProjects}/>
       </div>
 
