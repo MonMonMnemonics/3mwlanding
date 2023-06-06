@@ -52,10 +52,18 @@ function scrollTo(mode: number) {
 
 const dividerDiv = <div className="w-full h-1 bg-gray-900"></div>;
 
+var pointDown: boolean = true;
+function movePoint(e : any): void {
+  if (pointDown && e.isTrusted) {
+    e.preventDefault();
+    e.currentTarget.parentElement.scrollLeft -= e.movementX;
+  }  
+}
+
 function ProjectCard(project: any): ReactNode {
   return (
-    <div key={project.name} className="font-roboto flex flex-col items-center content-center min-w-[340px] max-w-[500px] w-[33vw]">
-      <div className="flex flex-col bg-cream text-black w-full rounded-xl py-1 h-full">
+    <div key={project.name} className="font-roboto flex flex-col items-center content-center min-w-[340px] max-w-[500px] w-[33vw] select-none">
+      <div className="flex flex-col bg-cream text-black w-full rounded-3xl py-1 h-full">
         <div className="border-b-2 border-black border-dashed pb-1">
           <h1 className="text-center text-xl font-extrabold">
             {project.name}
@@ -125,7 +133,9 @@ function ProjectCard(project: any): ReactNode {
 function ProjectCards({projects} : {projects: any[]}) {
   return (
     <div className="w-full overflow-x-scroll pb-3">
-      <div className="flex justify-center min-w-full w-fit space-x-4">
+      <div className="flex justify-center min-w-full w-fit space-x-4 hover:cursor-grab active:cursor-grabbing" 
+       onPointerDown={() => {pointDown = true}} onPointerUp={() => {pointDown = false}} onPointerLeave={() => {pointDown = false}} onPointerMove={movePoint}
+      >
         {projects.map(e => {return ProjectCard(e)})}
       </div>
     </div>

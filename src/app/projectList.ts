@@ -17,7 +17,7 @@ export const activeProjects = [
     {
         name: "Email blasting",
         position: "Just-for-fun Project",
-        description: "Email blasting script written in Node, planning to work on a webapp soon to help my father-in-law's work, so might as well make it usable for anyone.",
+        description: "Email blasting script written in Node originally made to help with boring desk job, so might as well make a webapp(soon TM) and make it usable for anyone.",
         techstacks: "Node",
         github: "https://github.com/MonMonMnemonics/gmail-auto-smtp",
     },
@@ -99,7 +99,7 @@ export const closedProjects = [
         ],
     },
     {
-        name: "terbook (Defunct)",
+        name: "Terbook (Defunct)",
         position: "Backend Developer",
         description: "Similar to IWTIF but for booking services for a beauty parlor or a salon.",
         techstacks: "Node - Vue - PostgreSQL",
@@ -119,7 +119,7 @@ export const otherProjects = [
     {
         name: "Starwish",
         position: "part-time programmer",
-        description: "Programming part-time job I took when I was in Nagoya (~2015-2017). It's like an employment agency where workers were assigned with seemingly random programming jobs.",
+        description: "Programming part-time job I took when I was in Nagoya (~2015-2018). It's like an employment agency where workers were assigned with seemingly random programming jobs.",
         techstacks: "VB.net, .net, flask, Symfony.",
     },
     {
