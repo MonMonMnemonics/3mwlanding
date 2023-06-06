@@ -37,7 +37,7 @@ export default function RootLayout({
 	      <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png"/>
 	      <link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png"/>
       </Head>      
-      <body>
+      <body className='overflow-x-hidden'>
         {children}
       </body>
     </html>

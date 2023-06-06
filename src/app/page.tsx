@@ -132,7 +132,7 @@ function ProjectCard(project: any): ReactNode {
 
 function ProjectCards({projects} : {projects: any[]}) {
   return (
-    <div className="w-full overflow-x-scroll pb-3">
+    <div className="projectCards w-full overflow-x-auto pb-3">
       <div className="flex justify-center min-w-full w-fit space-x-4 hover:cursor-grab active:cursor-grabbing" 
        onPointerDown={() => {pointDown = true}} onPointerUp={() => {pointDown = false}} onPointerLeave={() => {pointDown = false}} onPointerMove={movePoint}
       >
