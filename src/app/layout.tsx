@@ -1,5 +1,6 @@
 import './globals.css'
 import { Inter, Kalam, Roboto } from 'next/font/google'
+import Head from "next/head"
 
 const inter = Inter({ 
   variable: "--font-inter",
@@ -31,6 +32,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={kalam.variable + " " + inter.variable + " " + roboto.variable}>
+      <Head>
+        <link rel="apple-touch-icon" sizes="180x180" href="/favicon1680.png"/>
+	      <link rel="icon" type="image/png" sizes="32x32" href="/favicon32.png"/>
+	      <link rel="icon" type="image/png" sizes="16x16" href="/favicon16.png"/>
+      </Head>      
       <body>
         {children}
       </body>
