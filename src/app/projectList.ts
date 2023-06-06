@@ -95,31 +95,47 @@ export const closedProjects = [
         features: [
             "Payment system using Xendit",
             "S3 cloud storage using DO Spaces",
+            "Mailgun"
         ],
     },
     {
         name: "terbook (Defunct)",
         position: "Backend Developer",
-        description: "",
+        description: "Similar to IWTIF but for booking services for a beauty parlor or a salon.",
         techstacks: "Node - Vue - PostgreSQL",
         features: [
-            "S3 cloud storage using DO Spaces",
+            "Nothing new, more or less the same tech stack as IWTIF",
         ],
-    }
+    },
+    {
+        name: "Hugo static webpage",
+        position: "Collaborator",
+        description: "Just a simple static website written using HUGO.",
+        techstacks: "HUGO",
+    },
 ]
 
-export const proprietaryProjects = [
+export const otherProjects = [
     {
-        name: "npuzzle",
+        name: "Starwish",
+        position: "part-time programmer",
+        description: "Programming part-time job I took when I was in Nagoya (~2015-2017). It's like an employment agency where workers were assigned with seemingly random programming jobs.",
+        techstacks: "VB.net, .net, flask, Symfony.",
+    },
+    {
+        name: "Hotel Management 2 (Defunct)",
         position: "Developer",
-        description: "Nikoli puzzle with scribbler",
-        techstacks: "GO-Svelte-MongoDB",
+        description: "Just a rewrite of the previous version but in C# (~2015).",
+        techstacks: "C# - sqlite3",
+    },
+    {
+        name: "Hotel Management (Defunct)",
+        position: "Developer",
+        description: "Full package hotel management system, this was way way a long time ago around ~2013.",
+        techstacks: "VB.net - MS Access",
         features: [
-            "Kubernetes",
-            "Micro frontend",
-            "Micro backend"
+            "Daily and Monthly financial report.",
+            "Room booking system and status tracking system.",
         ],
-
-        github: "gitlink"
     }
 ]

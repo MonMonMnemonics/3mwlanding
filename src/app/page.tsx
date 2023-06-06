@@ -1,7 +1,7 @@
 "use client";
 
 import { ReactNode } from "react";
-import { activeProjects, openProjects, closedProjects, proprietaryProjects} from "./projectList"
+import { activeProjects, openProjects, closedProjects, otherProjects} from "./projectList"
 import { FontAwesomeIcon } from  "@fortawesome/react-fontawesome"
 import { faGithub  } from "@fortawesome/free-brands-svg-icons"
 
@@ -54,8 +54,8 @@ const dividerDiv = <div className="w-full h-1 bg-gray-900"></div>;
 
 function ProjectCard(project: any): ReactNode {
   return (
-    <div className="font-roboto flex flex-col items-center content-center min-w-[340px] max-w-[500px] w-[33vw]">
-      <div className="flex flex-col bg-cream text-black w-full rounded-xl py-1">
+    <div key={project.name} className="font-roboto flex flex-col items-center content-center min-w-[340px] max-w-[500px] w-[33vw]">
+      <div className="flex flex-col bg-cream text-black w-full rounded-xl py-1 h-full">
         <div className="border-b-2 border-black border-dashed pb-1">
           <h1 className="text-center text-xl font-extrabold">
             {project.name}
@@ -78,7 +78,7 @@ function ProjectCard(project: any): ReactNode {
           { project.features &&
             <ul className="list-disc list-inside">
               {project.features.map((e: string, index:number) => {
-                return <li key={index}>{e}</li>
+                return <li key={project.name+"ft"+index}>{e}</li>
               })}
             </ul> 
           }
@@ -86,7 +86,7 @@ function ProjectCard(project: any): ReactNode {
           { project.workedFeature &&
             <ul className="list-disc list-inside">
               {project.workedFeature.map((e: string, index:number) => {
-                return <li key={index}>{e}</li>
+                return <li key={project.name+"ftw"+index}>{e}</li>
               })}
             </ul> 
           }
@@ -99,7 +99,7 @@ function ProjectCard(project: any): ReactNode {
           { project.githubs &&
             <ul className="list-disc list-inside">
               {project.githubs.map((e: any, index:number) => {
-                return (<li key={index}>
+                return (<li key={project.name+"GH"+index}>
                   <a className=" cursor-pointer" href={e.link} target="_blank">
                     <FontAwesomeIcon icon={faGithub} /> {e.desc} Code
                   </a>                  
@@ -109,7 +109,7 @@ function ProjectCard(project: any): ReactNode {
           }
         </div>
         { project.link &&
-          <div className="flex border-t-2 border-black pt-1 px-5 w-full justify-center mt-1">
+          <div className="flex border-t-2 border-black pt-1 px-5 w-full justify-center mt-auto">
             <button className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
              onClick={() => {window.open(project.link)}}
             >
@@ -198,7 +198,7 @@ export default function Home() {
             Then from there, I've done all kinds of programming languages such as PoS with Delphi and Hotel management software using VB.net which was later rewritten in C#.<br/>
             <br/>
             As a long-time programmer, it's interesting to see how the interest shifted from desktop applications to web applications around 2015. My first dip into web application development was with Django,
-            Which didn't work out well with the client, then from there I tried my hands in all kinds of frameworks such as flask, .net, Symfony, and JS for both backend and frontend. But due to its portability, I ended up using JS the most.<br/>
+            which didn't work out well with the client and got scrapped, then from there I tried my hands in all kinds of frameworks such as flask, .net, Symfony, and JS for both backend and frontend. But due to its portability, I ended up using JS the most.<br/>
             <br/>
             With that being said, just like with Physics, I love to learn new things and experiment with programming.
             As such, I often start a new project or take a programming job to learn new technologies or techniques, and after so many hobby projects, it started to get too burdensome to get a different domain each time.
@@ -237,12 +237,12 @@ export default function Home() {
         </h1>
         <ProjectCards projects={closedProjects}/>
         <h1 className="text-center text-2xl">
-          --- Proprietary Source Code ---
+          --- Other projects ---
         </h1>
         <h1 className="text-center text-m mb-2">
           I either do not or may not have or show the source code.
         </h1>
-        <ProjectCards projects={proprietaryProjects}/>
+        <ProjectCards projects={otherProjects}/>
       </div>
 
     </main>
