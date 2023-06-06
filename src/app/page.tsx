@@ -199,16 +199,16 @@ export default function Home() {
             <img src="/profile.png" className="h-[200px]" alt="ProfilePict" />
           </div>
           <p className="text-justify">
-            Hi, I'm MonMonMnemonics, or people use to call me just MonMon.<br/>
+            Hi, I&apos;m MonMonMnemonics, or people use to call me just MonMon.<br/>
             <br/>
-            I'm a Particle Physicist by trade and doing PhD in theoretical hadron physics right now.<br/>
-            While on the side, I'm also doing programming both as a part-time job and as a simple hobby.<br/>
+            I&apos;m a Particle Physicist by trade and doing PhD in theoretical hadron physics right now.<br/>
+            While on the side, I&apos;m also doing programming both as a part-time job and as a simple hobby.<br/>
             <br/>
-            I've been doing programming for a long-long time, my first paid programming job was a finance software using VB6.
-            Then from there, I've done all kinds of programming languages such as PoS with Delphi and Hotel management software using VB.net which was later rewritten in C#.<br/>
+            I&apos;ve been doing programming for a long-long time, my first paid programming job was a finance software using VB6.
+            Then from there, I&apos;ve done all kinds of programming languages such as PoS with Delphi and Hotel management software using VB.net which was later rewritten in C#.<br/>
             <br/>
-            As a long-time programmer, it's interesting to see how the interest shifted from desktop applications to web applications around 2015. My first dip into web application development was with Django,
-            which didn't work out well with the client and got scrapped, then from there I tried my hands in all kinds of frameworks such as flask, .net, Symfony, and JS for both backend and frontend. But due to its portability, I ended up using JS the most.<br/>
+            As a long-time programmer, it&apos;s interesting to see how the interest shifted from desktop applications to web applications around 2015. My first dip into web application development was with Django,
+            which didn&apos;t work out well with the client and got scrapped, then from there I tried my hands in all kinds of frameworks such as flask, .net, Symfony, and JS for both backend and frontend. But due to its portability, I ended up using JS the most.<br/>
             <br/>
             With that being said, just like with Physics, I love to learn new things and experiment with programming.
             As such, I often start a new project or take a programming job to learn new technologies or techniques, and after so many hobby projects, it started to get too burdensome to get a different domain each time.
