@@ -30,7 +30,7 @@ function scrollTo(mode: number) {
     }
 
     case 3: {
-      const e = document.getElementById("Portofolio");
+      const e = document.getElementById("Portfolio");
       if (e) {
         e.scrollIntoView({
           behavior: "smooth",
@@ -54,7 +54,7 @@ const dividerDiv = <div className="w-full h-1 bg-gray-900"></div>;
 
 function ProjectCard(project: any): ReactNode {
   return (
-    <div className="font-roboto flex flex-col items-center content-center max-w-[300px] w-[33vw]">
+    <div className="font-roboto flex flex-col items-center content-center min-w-[340px] max-w-[500px] w-[33vw]">
       <div className="flex flex-col bg-cream text-black w-full rounded-xl py-1">
         <div className="border-b-2 border-black border-dashed pb-1">
           <h1 className="text-center text-xl font-extrabold">
@@ -70,13 +70,22 @@ function ProjectCard(project: any): ReactNode {
           { project.description &&
             <p>{project.description}</p>
           }
+          <p className="text-center">--- *** ---</p>
           { project.techstacks && 
-            <p>Tech Stack: {project.techstacks}</p>
+            <p>{project.techstacks}</p>
           }
-          <p>Features:</p>
+          { project.features && <p>Notable features:</p>}
           { project.features &&
             <ul className="list-disc list-inside">
               {project.features.map((e: string, index:number) => {
+                return <li key={index}>{e}</li>
+              })}
+            </ul> 
+          }
+          { project.workedFeature && <p>Features worked on:</p>}
+          { project.workedFeature &&
+            <ul className="list-disc list-inside">
+              {project.workedFeature.map((e: string, index:number) => {
                 return <li key={index}>{e}</li>
               })}
             </ul> 
@@ -86,10 +95,22 @@ function ProjectCard(project: any): ReactNode {
               <FontAwesomeIcon icon={faGithub} /> Github Code
             </a>
           }
+          { project.githubs && <p>Source code(s):</p>}
+          { project.githubs &&
+            <ul className="list-disc list-inside">
+              {project.githubs.map((e: any, index:number) => {
+                return (<li key={index}>
+                  <a className=" cursor-pointer" href={e.link} target="_blank">
+                    <FontAwesomeIcon icon={faGithub} /> {e.desc} Code
+                  </a>                  
+                </li>)
+              })}
+            </ul> 
+          }
         </div>
         { project.link &&
           <div className="flex border-t-2 border-black pt-1 px-5 w-full justify-center mt-1">
-            <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+            <button className="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
              onClick={() => {window.open(project.link)}}
             >
               Website
@@ -135,7 +156,7 @@ export default function Home() {
                 </li>
                 <li>
                   <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(3)}}>
-                    Portofolio
+                    Portfolio
                   </button>
                 </li>
               </ul>
@@ -181,7 +202,7 @@ export default function Home() {
             <br/>
             With that being said, just like with Physics, I love to learn new things and experiment with programming.
             As such, I often start a new project or take a programming job to learn new technologies or techniques, and after so many hobby projects, it started to get too burdensome to get a different domain each time.
-            Thus this website serves as a centralized server for my ongoing passion projects as well as a repository to keep track of what I tried and in which project.
+            Thus this website serves as a centralized server for my ongoing passion projects as well as a repository to keep track of what I tried in which project.
             <br/>
           </p>
         </div>
@@ -198,7 +219,7 @@ export default function Home() {
       </div>
 
       {dividerDiv}
-      <div id="Portofolio" className="font-roboto flex flex-col items-center content-center w-screen"
+      <div id="Portfolio" className="font-roboto flex flex-col items-center content-center w-screen"
        style={{padding:"21px"}}
       >
         <h1 className="text-center text-4xl font-extrabold mb-4">
@@ -208,12 +229,18 @@ export default function Home() {
           --- Open Source ---
         </h1>
         <ProjectCards projects={openProjects}/>
-        <h1 className="text-center text-2xl mb-2">
+        <h1 className="text-center text-2xl">
           --- Closed Source ---
         </h1>
+        <h1 className="text-center text-m mb-2">
+          I have all if not a bulk of the code to be functional.
+        </h1>
         <ProjectCards projects={closedProjects}/>
-        <h1 className="text-center text-2xl mb-2">
+        <h1 className="text-center text-2xl">
           --- Proprietary Source Code ---
+        </h1>
+        <h1 className="text-center text-m mb-2">
+          I either do not or may not have or show the source code.
         </h1>
         <ProjectCards projects={proprietaryProjects}/>
       </div>

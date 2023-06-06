@@ -18,7 +18,7 @@ module.exports = {
         roboto: ["var(--font-roboto)"]
       },
       colors: {
-        cream: "#FFFDD0"
+        cream: "#F5EFE7"
       }
     },
   },
