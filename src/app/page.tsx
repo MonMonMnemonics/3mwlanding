@@ -52,7 +52,7 @@ function scrollTo(mode: number) {
 
 const dividerDiv = <div className="w-full h-1 bg-gray-900"></div>;
 
-var pointDown: boolean = true;
+var pointDown: boolean = false;
 function movePoint(e : any): void {
   if (pointDown && e.isTrusted) {
     e.preventDefault();
