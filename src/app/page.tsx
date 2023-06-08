@@ -3,6 +3,7 @@
 import { ReactNode } from "react";
 import { activeProjects, openProjects, closedProjects, otherProjects} from "./projectList"
 import { FontAwesomeIcon } from  "@fortawesome/react-fontawesome"
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { faGithub  } from "@fortawesome/free-brands-svg-icons"
 
 function scrollTo(mode: number) {
@@ -142,37 +143,55 @@ function ProjectCards({projects} : {projects: any[]}) {
   )
 }
 
+function NavbarComp() {
+  return (
+    <nav className="fixed w-screen border-gray-200 bg-gray-900 font-inter">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="flex items-center cursor-pointer" onClick={() => {scrollTo(-1)}}>
+          <img src="/3mwlogo.png" className="h-8 mr-3" alt="Logo" />
+          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">3MWorkshop</span>
+        </div>
+        <div className="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            <li>
+              <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(1)}}>
+                About
+              </button>
+            </li>
+            <li>
+              <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(2)}}>
+                Active projects
+              </button>
+            </li>
+            <li>
+              <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(3)}}>
+                Portfolio
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>    
+  )
+}
+
+function FooterComp() {
+  return (
+    <div className="w-screen border-gray-200 bg-gray-900 font-inter">
+      <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="font-roboto flex items-center">
+          Contact me at <a href="mailto:mikatzukiathanas@gmail.com" className="ml-1"><FontAwesomeIcon icon={faEnvelope} style={{color: "white"}} /> mikatzukiathanas@gmail.com</a>
+        </div>
+      </div>
+    </div>    
+  )
+}
+
 export default function Home() {
   return (
     <main className="flex flex-col items-center px-13">
       <div className='flex h-screen flex-col items-center content-center w-full'>
-        <nav className="fixed w-screen border-gray-200 bg-gray-900 font-inter">
-          <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <div className="flex items-center cursor-pointer" onClick={() => {scrollTo(-1)}}>
-              <img src="/3mwlogo.png" className="h-8 mr-3" alt="Logo" />
-              <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">3MWorkshop</span>
-            </div>
-            <div className="hidden w-full md:block md:w-auto" id="navbar-default">
-              <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-                <li>
-                  <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(1)}}>
-                    About
-                  </button>
-                </li>
-                <li>
-                  <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(2)}}>
-                    Active projects
-                  </button>
-                </li>
-                <li>
-                  <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(3)}}>
-                    Portfolio
-                  </button>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
+        <NavbarComp/>
 
         <div className="flex flex-col items-center justify-center h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black to-90%">
           <div className="flex flex-col items-center">
@@ -251,7 +270,7 @@ export default function Home() {
         </h1>
         <ProjectCards projects={otherProjects}/>
       </div>
-
+      <FooterComp/>
     </main>
   )
 }
