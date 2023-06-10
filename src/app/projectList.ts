@@ -3,9 +3,8 @@ export const activeProjects = [
         name: "npuzzle",
         position: "Just-for-fun Project",
         description: "Nikoli puzzle with scribbler using canvas.",
-        techstacks: "GO - Svelte - MongoDB",
+        techstacks: "Kubernetes - GO - Svelte - MongoDB",
         features: [
-            "Kubernetes",
             "Micro frontend",
             "Micro backend",
             "PWA",
@@ -29,7 +28,7 @@ export const openProjects = [
         name: "MChatX",
         position: "Passion Project",
         description: "Message relayer, active only as a legacy since it's still serving thousands of clients per second.",
-        techstacks: "Node - Angular - MongoDB & Firebase",
+        techstacks: "VPS - Node - Angular - MongoDB & Firebase",
         features: [
             "Firebase Realtime Database",
             "Event Subscription System",
@@ -46,7 +45,7 @@ export const openProjects = [
         name: "Holodex",
         position: "Collaborator",
         description: "Centralized website for everything VTuber with all the extra goodies such as realtime translation and multi-view.",
-        techstacks: "Node - Vue - PostgreSQL",
+        techstacks: "VPS - Node - Vue - PostgreSQL",
         workedFeature: [
             "Whole translation and script management system in backend",
             "Translator + Translation script manager webapp client",
@@ -58,7 +57,7 @@ export const openProjects = [
         name: "Image Hosting (Defunct)",
         position: "Developer",
         description: "Fully self-hosted image hosting all in a single server.",
-        techstacks: "Node - React - MongoDB",
+        techstacks: "Vercel - Node - React - MongoDB",
         features: [
             "Auto file encryption and indexing system",
             "Ready to be deployed in Vercel",
@@ -91,7 +90,7 @@ export const closedProjects = [
         name: "IWTIF 2021 (Defunct)",
         position: "Backend Developer",
         description: "Indonesia Wellness & Tourism International Festival 2021. Basically, a marketplace website similar to shopee for health and wellbeing products.",
-        techstacks: "Node - Vue - PostgreSQL",
+        techstacks: "VPS - Node - Vue - PostgreSQL",
         features: [
             "Payment system using Xendit",
             "S3 cloud storage using DO Spaces",
@@ -102,7 +101,7 @@ export const closedProjects = [
         name: "Terbook (Defunct)",
         position: "Backend Developer",
         description: "Similar to IWTIF but for booking services for a beauty parlor or a salon.",
-        techstacks: "Node - Vue - PostgreSQL",
+        techstacks: "VPS - Node - Vue - PostgreSQL",
         features: [
             "Nothing new, more or less the same tech stack as IWTIF",
         ],
