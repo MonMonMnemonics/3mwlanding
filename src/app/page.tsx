@@ -6,51 +6,6 @@ import { FontAwesomeIcon } from  "@fortawesome/react-fontawesome"
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons"
 import { faGithub  } from "@fortawesome/free-brands-svg-icons"
 
-function scrollTo(mode: number) {
-  switch (mode) {
-    case 1: {
-      const e = document.getElementById("About");
-      if (e) {
-        e.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        })
-      }
-      break;
-    }
-
-    case 2: {
-      const e = document.getElementById("Projects");
-      if (e) {
-        e.scrollIntoView({
-          behavior: "smooth",
-          block: "center"
-        })
-      }
-      break;
-    }
-
-    case 3: {
-      const e = document.getElementById("Portfolio");
-      if (e) {
-        e.scrollIntoView({
-          behavior: "smooth",
-          block: "start"
-        })
-      }
-      break;
-    }
-
-    default: {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      })
-      break;
-    }
-  }
-}
-
 const dividerDiv = <div className="w-full h-1 bg-gray-900"></div>;
 
 var pointDown: boolean = false;
@@ -101,7 +56,7 @@ function ProjectCard(project: any): ReactNode {
           }
           { project.github &&
             <a className=" cursor-pointer" href={project.github} target="_blank">
-              <FontAwesomeIcon icon={faGithub} /> Github Code
+              <FontAwesomeIcon className="max-h-4" icon={faGithub} /> Github Code
             </a>
           }
           { project.githubs && <p>Source code(s):</p>}
@@ -110,7 +65,7 @@ function ProjectCard(project: any): ReactNode {
               {project.githubs.map((e: any, index:number) => {
                 return (<li key={project.name+"GH"+index}>
                   <a className=" cursor-pointer" href={e.link} target="_blank">
-                    <FontAwesomeIcon icon={faGithub} /> {e.desc} Code
+                    <FontAwesomeIcon className="max-h-4" icon={faGithub} /> {e.desc} Code
                   </a>                  
                 </li>)
               })}
@@ -147,26 +102,26 @@ function NavbarComp() {
   return (
     <nav className="fixed w-screen border-gray-200 bg-gray-900 font-inter">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-        <div className="flex items-center cursor-pointer" onClick={() => {scrollTo(-1)}}>
-          <img src="/3mwlogo.png" className="h-8 mr-3" alt="Logo" />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">3MWorkshop</span>
-        </div>
+          <a className="flex items-center cursor-pointer" href="#Banner">
+            <img src="/3mwlogo.png" className="h-8 mr-3" alt="Logo" />
+            <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">3MWorkshop</span>
+          </a>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
             <li>
-              <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(1)}}>
+              <a className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" href="#About">
                 About
-              </button>
+              </a>
             </li>
             <li>
-              <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(2)}}>
-                Active projects
-              </button>
+              <a className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" href="#Projects">
+                Active Projects
+              </a>
             </li>
             <li>
-              <button className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" onClick={() => {scrollTo(3)}}>
+              <a className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" href="#Portfolio">
                 Portfolio
-              </button>
+              </a>
             </li>
           </ul>
         </div>
@@ -193,7 +148,7 @@ export default function Home() {
       <div className='flex h-screen flex-col items-center content-center w-full'>
         <NavbarComp/>
 
-        <div className="flex flex-col items-center justify-center h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black to-90%">
+        <div id="Banner" className="flex flex-col items-center justify-center h-full w-full bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-700 via-gray-900 to-black to-90%">
           <div className="flex flex-col items-center">
             <img src="/logo2.png" className="h-3/5" alt="Logo"/>
             <h1 className="font-kalam text-center text-2xl mt-10">
