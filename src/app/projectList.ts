@@ -13,17 +13,18 @@ export const activeProjects = [
         github: "https://github.com/orgs/NPuzzleX/repositories",
         link: "https://npuzzle.3mworkshop.com"
     },
-    {
-        name: "Email blasting",
-        position: "Just-for-fun Project",
-        description: "Email blasting script written in Node originally made to help with boring desk job, so might as well make a webapp(soon TM) and make it usable for anyone.",
-        techstacks: "Node",
-        github: "https://github.com/MonMonMnemonics/gmail-auto-smtp",
-    },
 ]
 
 
 export const openProjects = [
+    {
+        name: "Email blasting",
+        position: "Just-for-fun Project",
+        description: "Email blasting desktop app written with nodeGUI. Originally made to help me with a boring mundane task, but decided to release it anyway just for the heck of it.",
+        techstacks: "Node",
+        github: "https://github.com/MonMonMnemonics/gmailsmtp2",
+        link: "https://github.com/MonMonMnemonics/gmailsmtp2/releases"
+    },
     {
         name: "MChatX",
         position: "Passion Project",
