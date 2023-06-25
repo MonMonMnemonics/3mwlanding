@@ -1,8 +1,12 @@
 export const activeProjects = [
+]
+
+
+export const openProjects = [
     {
         name: "npuzzle",
         position: "Just-for-fun Project",
-        description: "Nikoli puzzle with scribbler using canvas.",
+        description: "Nikoli puzzle with paper-like scribbler using canvas to imitate paper and pen puzzle sensation. Status : STUB since Nikoli itself started digitializing its puzzles a few months ago albeit without the scribbling capabilty.",
         techstacks: "Kubernetes - GO - Svelte - MongoDB",
         features: [
             "Micro frontend",
@@ -13,10 +17,6 @@ export const activeProjects = [
         github: "https://github.com/orgs/NPuzzleX/repositories",
         link: "https://npuzzle.3mworkshop.com"
     },
-]
-
-
-export const openProjects = [
     {
         name: "Email blasting",
         position: "Just-for-fun Project",
