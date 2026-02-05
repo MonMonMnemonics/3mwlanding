@@ -16,7 +16,7 @@
             <div class="flex flex-col items-center">
             <img src={logo} class="h-3/5" alt="Logo"/>
             <h1 class="font-kalam text-center text-2xl mt-10">
-                Welcome to MonMonMnemonics Workshop NOW WITH BUN!<br/>
+                Welcome to MonMonMnemonics Workshop NOW WITH BUN!!!!!<br/>
                 This is just a centralized server for any of my hobby projects<br/>
                 as well as any other things that pique my interest.
             </h1>
