@@ -1,7 +1,7 @@
 {
   "apps" : [{
     "name" : "3mwlanding",
-    "script": "./build/index.js",
-    "interpreter": "bun"
+    "script": "bun ./build/index.js",
+    "exec_interpreter": "none"
   }]
 }
