@@ -3,6 +3,13 @@ export const activeProjects = [
 
 export const openProjects = [
     {
+        name: "DNDate",
+        position: "Just-for-fun Project",
+        description: "Inspired by TonTon Amaneku, tool to help adjusting schedule with extra options to help deciding players.",
+        techstacks: "Bun - React - SQLite",
+        github: "https://github.com/MonMonMnemonics/dndate",
+    },
+    {
         name: "npuzzle",
         position: "Just-for-fun Project",
         description: "Nikoli puzzle with paper-like scribbler using canvas to imitate paper and pen puzzle sensation. Status : STUB since Nikoli itself started digitializing its puzzles a few months ago albeit without the scribbling capabilty.",
