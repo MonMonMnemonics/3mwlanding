@@ -3,11 +3,11 @@ export const activeProjects = [
 
 export const openProjects = [
     {
-        name: "DNDate",
+        name: "All Thing DnD",
         position: "Just-for-fun Project",
-        description: "Inspired by TonTon Amaneku, tool to help adjusting schedule with extra options to help deciding players.",
+        description: "Bun workspace for all thing DnD from DnDate, gm cheatsheet, and puzzles.",
         techstacks: "Bun - React - SQLite",
-        github: "https://github.com/MonMonMnemonics/dndate",
+        github: "https://github.com/MonMonMnemonics/allthingdnd",
     },
     {
         name: "npuzzle",
