@@ -79,12 +79,26 @@
 
                     {#if (project.link ?? null) != null}
                         <div class="flex border-t-2 border-black pt-1 px-5 w-full justify-center mt-auto">
-                            <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full"
+                            <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer"
                                 onclick={() => {window.open(project.link)}}
                             >
                                 Website
                             </button>
                         </div>
+                    {/if}
+
+                    {#if (project.links ?? null) != null}
+                        <div class="flex flex-row gap-2 items-center justify-around border-t-2 border-black pt-1 px-5 w-full">
+                            {#each project.links as e, index}
+                                <div class="flex justify-center mt-auto">
+                                    <button class="bg-green-700 hover:bg-green-900 text-white font-bold py-2 px-4 rounded-full cursor-pointer"
+                                        onclick={() => {window.open(e)}}
+                                    >
+                                        Website {index + 1}
+                                    </button>
+                                </div>
+                            {/each}
+                        </div> 
                     {/if}
                 </div>
             </div>
