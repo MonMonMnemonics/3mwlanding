@@ -1,13 +1,5 @@
 export const activeProjects = [
     {
-        name: "Sins 2 Replay Codex",
-        position: "Just-for-fun Project",
-        description: "Sins of Solar Empire 2 replay parser and tracker for past games",
-        techstacks: "Deno - Fresh - SQLite",
-        github: "https://github.com/MonMonMnemonics/sins2-replay-tracker",
-        link: "https://sins2-play-tracker.3mworkshop.org/"
-    },
-    {
         name: "All Thing DnD",
         position: "Just-for-fun Project",
         description: "Bun workspace for all thing DnD from DnDate, gm cheatsheet, and puzzles.",
@@ -22,6 +14,13 @@ export const activeProjects = [
 ]
 
 export const openProjects = [
+    {
+        name: "Sins 2 Replay Codex",
+        position: "Just-for-fun Project",
+        description: "Sins of Solar Empire 2 replay parser and tracker for past games",
+        techstacks: "Deno - Fresh - SQLite",
+        github: "https://github.com/MonMonMnemonics/sins2-replay-tracker",
+    },
     {
         name: "npuzzle",
         position: "Just-for-fun Project",
